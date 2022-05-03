@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
+import useProduct from '../useProduct/useProduct';
 
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
+    const [products,setProducts] =useProduct()
     const [myItems,setMyItenms] =useState([])
+    // const [items,setItems]  =useState([])
     const email =user.email
     useEffect(() =>{
         const url =`http://localhost:5000/myitem/${email}`
@@ -15,6 +18,25 @@ const MyItems = () => {
             setMyItenms(data)
         })
     },[])
+    const handleDelete = id =>{
+        const proceed =window.confirm("Are you Sure To Delete")
+        if(proceed){
+            const url =`http://localhost:5000/delete/${id}`
+            fetch(url,{
+                method:"DELETE"
+            })
+            .then(res =>res.json())
+            .then(data =>{
+                const remaining = myItems.filter(product =>product._id !==id)
+                // setItems(remaining)
+                setMyItenms(remaining)
+                // const remaining = data
+                // setMyItenms(data)
+
+            })
+
+        }
+    }
     return (
         <div className="mt-5 container">
             <h2>My Items</h2>
@@ -30,7 +52,7 @@ const MyItems = () => {
     <p class="card-text"><small class="text-muted"></small></p>
     <p className='fs-5'>Quantity : {pd.quantity}</p>
     <p className='fs-5'>Supplier name : {pd.supplier_name}</p>
-    {/* <button onClick={() =>handleDelete(pd._id)} type="button" class="btn btn-danger">Delete</button> */}
+    <button onClick={() =>handleDelete(pd._id)} type="button" class="btn btn-danger">Delete</button>
   </div>
      </div>
                 </div>
