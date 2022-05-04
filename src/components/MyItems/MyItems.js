@@ -17,7 +17,7 @@ const MyItems = () => {
             console.log("my",data)
             setMyItenms(data)
         })
-    },[])
+    },[user])
     const handleDelete = id =>{
         const proceed =window.confirm("Are you Sure To Delete")
         if(proceed){
@@ -51,7 +51,6 @@ const MyItems = () => {
     <p class="card-text px-5">{pd.description}</p>
     <p class="card-text"><small class="text-muted"></small></p>
     <p className='fs-5'>Quantity : {pd.quantity}</p>
-    <p className='fs-5'>Supplier name : {pd.supplier_name}</p>
     <button onClick={() =>handleDelete(pd._id)} type="button" class="btn btn-danger">Delete</button>
   </div>
      </div>

@@ -10,13 +10,18 @@ const InventoryDetails = () => {
         const url =`http://localhost:5000/product/${inventoryId}`
         fetch(url)
         .then(res =>res.json())
-        .then(data =>setInventoryDetail(data))
+        .then(data =>{
+          setInventoryDetail(data)
+          console.log(data)
+        })
     },[])
     const handleReduce =() =>{
-      console.log()
+      // console.log()
 
         const quantity =inventoryDetail.quantity;
+        
         const updateQuantity =quantity-1
+        console.log("qu",updateQuantity)
         
         const url =`http://localhost:5000/product/${inventoryId}`;
         
@@ -28,9 +33,9 @@ const InventoryDetails = () => {
   },
   
 })
-  .then((response) => response.json())
+  .then(response => response.json())
   .then(data =>{
-    
+   
     // console.log(data)
     // const remaining =products.find( items =>items._id ==data._id)
     // const update =products.map(items => console.log(items))
@@ -41,7 +46,9 @@ const InventoryDetails = () => {
     // console.log(update)
 
   });
-
+  const prod =products.find(item =>item._id ==inventoryId)
+  console.log(prod)
+  setInventoryDetail(prod)
         // body:JSON.stringify(updateQuality)
     }
     const handleIncress =(event) =>{
@@ -68,7 +75,6 @@ const InventoryDetails = () => {
            <div class="card mb-3 w-50 mx-auto">
   <img src={inventoryDetail.img} className="card-img-top w-25 mx-auto" alt="..." />
   <div class="card-body">
-      <small className='fs-5'>Id:{inventoryDetail._id}</small>
     <h5 class="card-title">{inventoryDetail.name}</h5>
     <p class="card-text px-5">{inventoryDetail.description}</p>
     <p class="card-text"><small class="text-muted"></small></p>

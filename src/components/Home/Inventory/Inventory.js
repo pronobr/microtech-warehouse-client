@@ -10,12 +10,13 @@ const Inventory = () => {
        .then(res =>res.json())
        .then(data =>
         {
-            setProducts(data)
-            console.log(data.slice(0,4))
+          const sliceProduct =data.slice(0,6)
+            setProducts(sliceProduct)
+            
         })
     },[])
     return (
-<div className="">
+<div className="py-5">
 <div className="container my-5">
             <div className=' row row-cols-1 row-cols-md-3 g-2'>
             {

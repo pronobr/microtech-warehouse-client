@@ -3,11 +3,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import auth from '../../Firebase/Firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
+
   import 'react-toastify/dist/ReactToastify.css';
 const AddItem = () => {
     const { register, handleSubmit } = useForm();
+    const {
+      
+        resetField,
+        formState: { isDirty, isValid }
+      } = useForm({
+        mode: "onChange",
+        defaultValues: {
+          firstName: ""
+        }
+      });
     const [user, loading, error] = useAuthState(auth);
     const notify = () => toast("Product Added");
+    const { reset } = useForm();
     const onSubmit = data => {
         console.log("dld",data)
         const url =`http://localhost:5000/products`
@@ -24,6 +36,7 @@ const AddItem = () => {
             console.log(result)
            
         })
+        reset()
     }
     return (
         <div className ="w-50 mx-auto my-5">
