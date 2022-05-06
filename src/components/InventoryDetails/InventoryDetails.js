@@ -5,9 +5,11 @@ import useProduct from '../useProduct/useProduct';
 const InventoryDetails = () => {
     const {inventoryId}  =useParams()
     // const [products,setProducts] =useProduct()
-    const [updateProduct,setUpdateProduct] =useState(false)
+    
     // const [updatequantity,setUpdatequantity] =useState()
     const [inventoryDetail,setInventoryDetail] =useState({})
+    const oldQuantity =inventoryDetail.quantity
+    const [updateProduct,setUpdateProduct] =useState(oldQuantity)
     useEffect(()=>{
         const url =`https://secure-shelf-68482.herokuapp.com/product/${inventoryId}`
         fetch(url)
@@ -16,11 +18,21 @@ const InventoryDetails = () => {
           setInventoryDetail(data)
           console.log(data)
         })
-    },[updateProduct])
+    },[])
     const handleReduce =() =>{
       const quantity =parseInt(inventoryDetail.quantity)-1
       const updateQuantity =quantity;
-    //  const vari =updateQuantity
+    //  const vari =inventoryDetail.quantity;
+
+    // const {quantity,...rest} =inventoryDetail
+    // // console.log(quantity,"rest",rest)
+    // const previousQuantity =quantity-1
+    // setUpdateProduct(previousQuantity)
+    // const updateQuantity ={updateProduct,...rest}
+    // // console.log(updateProduct,"p")
+    // console.log("old",updateProduct)
+
+    //  vari =
     //  setInventoryDetail(inventoryDetail.qua)
 
       // setUpdateProduct(updateQuantity)
@@ -50,7 +62,7 @@ const requestOptions = {
   body: JSON.stringify({updateQuantity})
 };
 fetch(`https://secure-shelf-68482.herokuapp.com/product/${inventoryId}`, requestOptions)
-  .then(response => response.json(),setUpdateProduct(!updateProduct))
+  .then(response => response.json())
   .then(data =>console.log(inventoryDetail));
 
     }
