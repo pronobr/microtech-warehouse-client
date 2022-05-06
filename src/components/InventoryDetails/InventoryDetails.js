@@ -8,8 +8,8 @@ const InventoryDetails = () => {
     
     // const [updatequantity,setUpdatequantity] =useState()
     const [inventoryDetail,setInventoryDetail] =useState({})
-    const oldQuantity =inventoryDetail.quantity
-    const [updateProduct,setUpdateProduct] =useState(oldQuantity)
+    // const oldQuantity =inventoryDetail.quantity
+    // const [updateProduct,setUpdateProduct] =useState()
     useEffect(()=>{
         const url =`https://secure-shelf-68482.herokuapp.com/product/${inventoryId}`
         fetch(url)
@@ -18,65 +18,38 @@ const InventoryDetails = () => {
           setInventoryDetail(data)
           console.log(data)
         })
-    },[])
+    },[inventoryId])
     const handleReduce =() =>{
-      const quantity =parseInt(inventoryDetail.quantity)-1
-      const updateQuantity =quantity;
-    //  const vari =inventoryDetail.quantity;
+      // const quantity =parseInt(inventoryDetail.quantity)-1
+      // const updateQuantity =quantity;
+      const newQuantity =parseInt(inventoryDetail?.quantity) - 1;
+      setInventoryDetail({...inventoryDetail, quantity:newQuantity})
+  
+      const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({newQuantity})
+     };
+     fetch(`https://secure-shelf-68482.herokuapp.com/product/${inventoryId}`, requestOptions)
+       .then(response => response.json())
+       .then(data =>console.log(inventoryDetail));
 
-    // const {quantity,...rest} =inventoryDetail
-    // // console.log(quantity,"rest",rest)
-    // const previousQuantity =quantity-1
-    // setUpdateProduct(previousQuantity)
-    // const updateQuantity ={updateProduct,...rest}
-    // // console.log(updateProduct,"p")
-    // console.log("old",updateProduct)
-
-    //  vari =
-    //  setInventoryDetail(inventoryDetail.qua)
-
-      // setUpdateProduct(updateQuantity)
-//       console.log(updateQuantity)
-     
-//       // setInventoryDetail(updateProduct)
-//       // console.log(updateProduct)
-   
-//       const url =`https://secure-shelf-68482.herokuapp.com/product/${inventoryId}`;
-      
-//       fetch(url, {
-//     method: 'PUT',
-//           body: JSON.stringify({updateQuantity}),
-//       headers: {
-//         'Content-type': 'application/json; charset=UTF-8',
-//          },
-
-// })
-// .then(res =>res.json())
-// .then(data =>{
-//   console.log("pronob")
-//   setUpdateProduct(!updateProduct)
-// })
-const requestOptions = {
-  method: 'PUT',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({updateQuantity})
-};
-fetch(`https://secure-shelf-68482.herokuapp.com/product/${inventoryId}`, requestOptions)
-  .then(response => response.json())
-  .then(data =>console.log(inventoryDetail));
 
     }
     const handleIncress =(event) =>{
         event.preventDefault();
         const addQuantity =event.target.number.value
         const quantity =inventoryDetail.quantity;
-        const updateQuantity =quantity+parseInt(addQuantity)
+        // const updateQuantity =quantity?+parseInt(addQuantity)
+        // setInventoryDetail({...inventoryDetail, quantity:updateQuantity})
+        const newQuantity =parseInt(addQuantity) + quantity;
+        setInventoryDetail({...inventoryDetail, quantity:newQuantity})
 
              
         const url =`https://secure-shelf-68482.herokuapp.com/productincress/${inventoryId}`;
         fetch(url, {
        method: 'PUT',
-       body: JSON.stringify({updateQuantity}),
+       body: JSON.stringify({newQuantity}),
      headers: {
     'Content-type': 'application/json; charset=UTF-8',
      },
