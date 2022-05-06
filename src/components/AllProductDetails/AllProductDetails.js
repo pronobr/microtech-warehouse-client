@@ -3,7 +3,7 @@ import Footer from '../Others/Footer/Footer';
 import "./AllProductDetails.css";
 const AllProductDetails = () => {
     return (
-        <div className="mt-5">
+        <div className="mt-5 detail">
             <div className="parant my-5">
             <div className='section px-5 row row-cols-1 row-cols-md-4 g-4'>
            <div className="text-white fw-bold">
