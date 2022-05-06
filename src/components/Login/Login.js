@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init';
 import Loading from '../Loading/Loading';
 import "./Login.css"
@@ -9,9 +10,14 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const [errorMessage,setErrorMessage] =useState([])
+  const [sendPasswordResetEmail, sending, error3] = useSendPasswordResetEmail(
+    auth
+  );
+  const [resetEmail,setResetEmail] =useState('')
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   const notify = () => toast(" You Are Loged In");
+  const notify2 = () => toast(" Message Sent");
   const [
     signInWithEmailAndPassword,
     user,
@@ -27,7 +33,9 @@ const Login = () => {
     event.preventDefault();
    
     const email = event.target.email.value;
+    setResetEmail(email)
         const password = event.target.password.value;
+
         console.log(email,password)
         signInWithEmailAndPassword(email,password)
         if(error){
@@ -63,30 +71,37 @@ const Login = () => {
 })
 
   }
+  const handleResetpass =() =>{
+    
+      sendPasswordResetEmail(resetEmail)
+      notify2()
+   
+   
+  }
     return (
         <div className='simple-login-container'>
             <h2>Login</h2>
            <form onSubmit={handleLogin}>
 
-  <div class="form-outline mb-4">
-  <label class="form-label" for="form2Example1">Email address</label>
-    <input name='email' type="email" id="form2Example1" class="form-control" />
+  <div className="form-outline mb-4">
+  <label className="form-label" for="form2Example1">Email address</label>
+    <input name='email' type="email" id="form2Example1" className="form-control" />
     
   </div>
 
-  <div class="form-outline mb-4">
-  <label class="form-label" for="form2Example2">Password</label>
-    <input name='password' type="password" id="form2Example2" class="form-control" />
+  <div className="form-outline mb-4">
+  <label className="form-label" for="form2Example2">Password</label>
+    <input name='password' type="password" id="form2Example2" className="form-control" />
     
   </div>
 
-  <div class="row ">
-    <div class="  justify-content-center">
+  <div className="row ">
+    <div className="  justify-content-center">
       <p className='text-danger'>{errorMessage}</p>
     </div>
 
     <div className="d-inline">
-   
+   <p>Reset Password <button className='border-none' onClick={handleResetpass} href="">Reset</button></p>
     <p>New In Here  <Link className='nav-link' to="/register">Register</Link></p>
     </div>
   </div>
