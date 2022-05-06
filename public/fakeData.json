@@ -18,7 +18,7 @@
       "quantity": 12,
       "img" :"https://www.ryanscomputers.com/storage/products/medium/acer-extensa-15-ex215-52-384m-10th-gen-intel-core-11600768608.webp",
        "supplier_name":"kabir",
-       "email":"kr@gmail.com"
+       "email":"pronobroy3601@gmail.com"
     },
   
      {
@@ -45,13 +45,53 @@
   
      {
     
-      "name": "Acer Swift 3 SF314",
-      "description": " Acer Swift 3 SF314-42 AMD Ryzen 5 4500U 14 Inch FHD Display Silver Laptop is a high range laptop in Bangladesh. Acer Swift 3 SF314",
-      "price": 5600,
-      "quantity": 40,
-      "img" :"https://www.ryanscomputers.com/storage/products/medium/acer-swift-3-sf314-42-amd-ryzen-5-4500u-11604137232.webp",
-       "supplier_name":"hridoy",
-       "email":"hr@gmail.com"
+      "name": "Asus X515MA",
+      "description": " Laptop Brand - Asus, Laptop Model - Asus X515MA, Processor Brand - Intel, Processor Type - Intel Celeron Dual Core, Processor Model - CDC N4020, Processor Base Frequency - 1.10 GHz, Processor Max Turbo Frequency - 2.80 GHz, Processor Core - 2, Processor Thread",
+      "price": 100000,
+      "quantity": 70,
+      "img" :"https://www.ryanscomputers.com/storage/products/medium/asus-x515ma-intel-cdc-n4020-156-inch-hd-display-11647084358.webp",
+       "supplier_name":"miaz",
+       "email":"miaz@gmail.com"
+    },
+    {
+    
+      "name": "Lenovo IdeaPad Slim 3i ",
+      "description": "Laptop Brand - Lenovo, Laptop Series - IdeaPad, Laptop Model - Lenovo IdeaPad Slim 3i 15IGL, Processor Brand - Intel, Processor Type - Intel Celeron Dual Core, Processor Model - CDC N4020, Processor Base Frequency - 1.10 GHz, Processor Max Turbo Frequency - 2.80 GHz, Processor Core - 2, Processor Thread - 2",
+      "price": 50000,
+      "quantity": 30,
+      "img" :"https://www.ryanscomputers.com/storage/products/medium/lenovo-ideapad-slim-3i-15igl-intel-cdc-n4020-156-11646039819.webp",
+       "supplier_name":"rahul",
+       "email":"rahul@gmail.com"
+    },
+    {
+    
+      "name": "Chuwi HeroBook Pro Intel ",
+      "description": "Chuwi HeroBook Pro Intel CDC N4000 14.1 Inch FHD (1920x1080) IPS Display, Win 10, Grey Laptop is a budget laptop in Bangladesh. Chuwi HeroBook Pro is a Chuwi brand laptop. Right Now available the Chuwi HeroBook Pro Intel CDC N4000 ",
+      "price": 57000,
+      "quantity": 49,
+      "img" :"https://www.ryanscomputers.com/storage/products/medium/chuwi-herobook-pro-intel-cdc-n4000-grey-11584267848.webp",
+       "supplier_name":"amin",
+       "email":"amin@gmail.com"
+    },
+    {
+    
+      "name": "Avita PURA AMD Ryzen ",
+      "description": "Avita PURA AMD Ryzen 3 3200U 14 Inch FHD IPS Display Metallic Black Laptop is a budget laptop in Bangladesh. Avita PURA is a Avita brand laptop. Right Now available the Avita PURA AMD Ryzen 3 3200U 14 Inch FHD IPS Display Metallic Black Laptop ",
+      "price": 90000,
+      "quantity": 37,
+      "img" :"https://www.ryanscomputers.com/storage/products/medium/avita-pura-amd-ryzen-3-3200u-14-inch-fhd-ips-11617697215.webp",
+       "supplier_name":"hasib",
+       "email":"hasib@gmail.com"
+    },
+    {
+    
+      "name": "Asus ExpertBook L1 L1500CDA",
+      "description": "Laptop Brand - Asus, Laptop Model - Asus ExpertBook L1 L1500CDA, Laptop Series - ExpertBook, Processor Brand - AMD, Processor Type - AMD Ryzen 3, Processor Model - Ryzen 3 3250U, Processor Base Frequency",
+      "price": 49000,
+      "quantity": 52,
+      "img" :"https://www.ryanscomputers.com/storage/products/medium/avita-pura-amd-ryzen-3-3200u-14-inch-fhd-ips-11617697215.webp",
+       "supplier_name":"umar",
+       "email":"umar@gmail.com"
     }
     
  

@@ -4,36 +4,36 @@ const Footer = () => {
 
     return (
         <div>
-            <footer class="bg-dark text-center text-white">
+            <footer className="bg-dark text-center text-white">
 
-  <div class="container p-5 pb-0 ">
+  <div className="container p-5 pb-0 ">
     
-    <section class="">
+    <section className="">
       <form action="">
        
-        <div class="row d-flex justify-content-center">
+        <div className="row d-flex justify-content-center">
          
-          <div class="col-auto">
-            <p class="pt-2">
+          <div className="col-auto">
+            <p className="pt-2">
               <strong>Sign up for our newsletter</strong>
             </p>
           </div>
          
 
          
-          <div class="col-md-5 col-12">
+          <div className="col-md-5 col-12">
 
-            <div class="form-outline form-white mb-4">
-              <input type="email" id="form5Example29" class="form-control" />
-              <label class="form-label" for="form5Example29">Email address</label>
+            <div className="form-outline form-white mb-4">
+              <input type="email" id="form5Example29" className="form-control" />
+              <label className="form-label" for="form5Example29">Email address</label>
             </div>
           </div>
           
 
          
-          <div class="col-auto">
+          <div className="col-auto">
           
-            <button type="submit" class="btn btn-outline-light mb-4">
+            <button type="submit" className="btn btn-outline-light mb-4">
               Subscribe
             </button>
           </div>
@@ -46,9 +46,9 @@ const Footer = () => {
 
 
 
-  <div class="text-center p-3 bg-black" >
+  <div className="text-center p-3 bg-black" >
    
-    <a class="text-white" href="https://mdbootstrap.com/">Microtech</a>
+    <a className="text-white" href="https://mdbootstrap.com/">Microtech</a>
   </div>
  
 </footer>

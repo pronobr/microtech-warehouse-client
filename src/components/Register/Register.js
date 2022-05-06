@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Register.css";
 import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -26,8 +26,11 @@ const Register = () => {
         const password = event.target.password.value;
         createUserWithEmailAndPassword(email, password)
 
+       
         if(error){
-          setRegisterError(error.message)
+          const  regError =error.message
+          console.log(regError)
+          setRegisterError(regError)
           return;
         }
         
@@ -46,27 +49,27 @@ const Register = () => {
             <h2>Register</h2>
            <form onSubmit={handleRegister}>
 
-           <div class="form-outline mb-4">
-  <label class="form-label" for="form2Example2">Name</label>
-    <input name="name" type="text" id="form2Example2" class="form-control" />
+           <div className="form-outline mb-4">
+  <label className="form-label" for="form2Example2">Name</label>
+    <input name="name" type="text" id="form2Example2" className="form-control" />
     
   </div>
 
-  <div class="form-outline mb-4">
-  <label class="form-label" for="form2Example1">Email address</label>
-    <input name='email'  type="email" id="form2Example1" class="form-control" />
+  <div className="form-outline mb-4">
+  <label className="form-label" for="form2Example1">Email address</label>
+    <input name='email'  type="email" id="form2Example1" className="form-control" />
     
   </div>
 
-  <div class="form-outline ">
-  <label class="form-label" for="form2Example2">Password</label>
-    <input name="password" type="password" id="form2Example2" class="form-control" />
+  <div className="form-outline ">
+  <label className="form-label" for="form2Example2">Password</label>
+    <input name="password" type="password" id="form2Example2" className="form-control" />
     
   </div>
 
 
-  <div class="row">
-    <div class="  justify-content-center">
+  <div className="row">
+    <div className="  justify-content-center">
       <p className='text-danger'>{registerError}</p>
     </div>
 
@@ -75,12 +78,12 @@ const Register = () => {
     <p>Already Register  <Link className='nav-link' to="/login">Login</Link></p>
     </div>
   </div>
-  <input onClick={async () => {
+  <input onClick={ () => {
                   
-          await sendEmailVerification();
+           sendEmailVerification();
          
-          alert('Sent email');
-        }} className='btn-login fs-6 fw-bold mb-3' type="submit" value="Sign in" />
+        
+        }} className='btn-login fs-6 fw-bold mb-3' type="submit" value="Sign up" />
         <ToastContainer />
   </form>
         </div>

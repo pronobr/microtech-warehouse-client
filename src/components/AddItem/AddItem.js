@@ -22,7 +22,7 @@ const AddItem = () => {
     const { reset } = useForm();
     const onSubmit = data => {
         console.log("dld",data)
-        const url =`http://localhost:5000/products`
+        const url =`https://secure-shelf-68482.herokuapp.com/products`
         fetch(url,{
             method: "POST",
             headers: {

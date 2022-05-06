@@ -43,9 +43,9 @@ const Login = () => {
  
   
     if(user){
-      
+      navigate(from, { replace: true });
     console.log(user.user.email)
-    const url ='http://localhost:5000/login';
+    const url ='https://secure-shelf-68482.herokuapp.com/login';
     fetch(url,{
   method: "POST",
   headers:{

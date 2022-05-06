@@ -10,7 +10,7 @@ const MyItems = () => {
     // const [items,setItems]  =useState([])
     const email =user.email
     useEffect(() =>{
-        const url =`http://localhost:5000/myitem?email=${email}`;
+        const url =`https://secure-shelf-68482.herokuapp.com/myitem?email=${email}`;
         fetch(url,{
             method: "GET",
             headers: {
@@ -26,7 +26,7 @@ const MyItems = () => {
     const handleDelete = id =>{
         const proceed =window.confirm("Are you Sure To Delete")
         if(proceed){
-            const url =`http://localhost:5000/delete/${id}`
+            const url =`https://secure-shelf-68482.herokuapp.com/delete/${id}`
             fetch(url,{
                 method:"DELETE"
             })
@@ -48,15 +48,17 @@ const MyItems = () => {
             <div className='row row-cols-1 row-cols-md-3 g-4'>
             {
               myItems.map(pd =>
-                <div class="col">
-                     <div class="card mt-5">
+                <div className="col">
+                     <div className="card mt-5">
   <img src={pd.img} className="card-img-top w-25 mx-auto" alt="..." />
-  <div class="card-body">
-    <h5 class="card-title">{pd.name}</h5>
-    <p class="card-text px-5">{pd.description}</p>
-    <p class="card-text"><small class="text-muted"></small></p>
+  <div className="card-body">
+    <h5 className="card-title">{pd.name}</h5>
+    <p className="card-text px-5">{pd.description}</p>
+    <p className="card-text"><small className="text-muted"></small></p>
+    <p className='fs-5'>Price : {pd.price}</p>
     <p className='fs-5'>Quantity : {pd.quantity}</p>
-    <button onClick={() =>handleDelete(pd._id)} type="button" class="btn btn-danger">Delete</button>
+    
+    <button onClick={() =>handleDelete(pd._id)} type="button" className="btn btn-danger">Delete</button>
   </div>
      </div>
                 </div>

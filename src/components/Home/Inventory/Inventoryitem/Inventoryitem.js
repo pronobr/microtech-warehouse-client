@@ -26,6 +26,6 @@ const Inventoryitem = ({item}) => {
 
 export default Inventoryitem;
 
-<div class="col">
+<div className="col">
     
   </div>
