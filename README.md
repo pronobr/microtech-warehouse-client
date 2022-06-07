@@ -8,8 +8,11 @@ MicroTech is a laptop warehouse management websit and processes involved in runn
 
  ### features and functionality
 
+- Laptop Warehouse Management Website
 - used firebase for authenticatation
-- used mongodb  for stored all data
-- for secure data jwt implement
-- implement private route for visit only authorized  account
-- used dotenv for secure authenticatation email and password
+- Login and Register Implement
+- User Edit Inventory Add And Delete Product
+- Used Mongodb  for stored all data
+- For secure data jwt implement
+- Implement private route for visit only authorized  account
+- Used dotenv for secure authenticatation email and password
